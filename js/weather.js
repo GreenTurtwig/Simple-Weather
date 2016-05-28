@@ -41,78 +41,104 @@ function getWeather() {
     if (weather.currently.icon == "partly-cloudy-day"){
         $("body").css("background-color", "#9E9E9E");
         $("body").css("transition", "background-color 1000ms linear");
+        $('meta[name=theme-color]').remove();
+        $('head').append( '<meta name="theme-color" content="#9E9E9E">' );
         document.getElementById("weather").innerHTML = (weather.currently.summary);
         document.getElementById("icon").innerHTML = ('<i class="wi wi-day-cloudy"></i>')
 
     } else if (weather.currently.icon == "partly-cloudy-night"){
         $("body").css("background-color", "#9E9E9E");
         $("body").css("transition", "background-color 1000ms linear");
+        $('meta[name=theme-color]').remove();
+        $('head').append( '<meta name="theme-color" content="#9E9E9E">' );
         document.getElementById("weather").innerHTML = (weather.currently.summary);
         document.getElementById("icon").innerHTML = ('<i class="wi wi-night-alt-cloudy"></i>')
 
     } else if (weather.currently.icon == "cloudy"){
         $("body").css("background-color", "#9E9E9E");
         $("body").css("transition", "background-color 1000ms linear");
+        $('meta[name=theme-color]').remove();
+        $('head').append( '<meta name="theme-color" content="#9E9E9E">' );
         document.getElementById("weather").innerHTML = (weather.currently.summary);
         document.getElementById("icon").innerHTML = ('<i class="wi wi-cloudy"></i>')
 
     } else if (weather.currently.icon == "clear-day"){
         $("body").css("background-color", "#FF6F00");
         $("body").css("transition", "background-color 1000ms linear");
+        $('meta[name=theme-color]').remove();
+        $('head').append( '<meta name="theme-color" content="#FF6F00">' );
         document.getElementById("weather").innerHTML = (weather.currently.summary);
         document.getElementById("icon").innerHTML = ('<i class="wi wi-day-sunny"></i>')
 
     } else if (weather.currently.icon == "clear-night"){
         $("body").css("background-color", "#212121");
         $("body").css("transition", "background-color 1000ms linear");
+        $('meta[name=theme-color]').remove();
+        $('head').append( '<meta name="theme-color" content="#212121">' );
         document.getElementById("weather").innerHTML = (weather.currently.summary);
         document.getElementById("icon").innerHTML = ('<i class="wi wi-night-clear"></i>')
 
     } else if (weather.currently.icon == "rain"){
         $("body").css("background-color", "#03A9F4");
         $("body").css("transition", "background-color 1000ms linear");
+        $('meta[name=theme-color]').remove();
+        $('head').append( '<meta name="theme-color" content="#03A9F4>' );
         document.getElementById("weather").innerHTML = (weather.currently.summary);
         document.getElementById("icon").innerHTML = ('<i class="wi wi-rain"></i>')
 
     } else if (weather.currently.icon == "snow"){
         $("body").css("background-color", "#BDBDBD");
         $("body").css("transition", "background-color 1000ms linear");
+        $('meta[name=theme-color]').remove();
+        $('head').append( '<meta name="theme-color" content="#BDBDBD">' );
         document.getElementById("weather").innerHTML = ( weather.currently.summary);
         document.getElementById("icon").innerHTML = ('<i class="wi wi-snow"></i>')
 
     } else if (weather.currently.icon == "sleet"){
         $("body").css("background-color", "#9E9E9E");
         $("body").css("transition", "background-color 1000ms linear");
+        $('meta[name=theme-color]').remove();
+        $('head').append( '<meta name="theme-color" content="#9E9E9E">' );
         document.getElementById("weather").innerHTML = (weather.currently.summary);
         document.getElementById("icon").innerHTML = ('<i class="wi wi-sleet"></i>')
 
     } else if (weather.currently.icon == "wind"){
         $("body").css("background-color", "#9E9E9E");
         $("body").css("transition", "background-color 1000ms linear");
+        $('meta[name=theme-color]').remove();
+        $('head').append( '<meta name="theme-color" content="#9E9E9E">' );
         document.getElementById("weather").innerHTML = (weather.currently.summary);
         document.getElementById("icon").innerHTML = ('<i class="wi wi-strong-wind"></i>')
 
     } else if (weather.currently.icon == "fog"){
         $("body").css("background-color", "#9E9E9E");
         $("body").css("transition", "background-color 1000ms linear");
+        $('meta[name=theme-color]').remove();
+        $('head').append( '<meta name="theme-color" content="#9E9E9E">' );
         document.getElementById("weather").innerHTML = (weather.currently.summary);
         document.getElementById("icon").innerHTML = ('<i class="wi wi-fog"></i>')
 
     } else if (weather.currently.icon == "hail"){
         $("body").css("background-color", "#64B5F6");
         $("body").css("transition", "background-color 1000ms linear");
+        $('meta[name=theme-color]').remove();
+        $('head').append( '<meta name="theme-color" content="#64B5F6">' );
         document.getElementById("weather").innerHTML = (weather.currently.summary);
         document.getElementById("icon").innerHTML = ('<i class="wi wi-hail"></i>')
 
     } else if (weather.currently.icon == "thunderstorm"){
         $("body").css("background-color", "#FF8F00");
         $("body").css("transition", "background-color 1000ms linear");
+        $('meta[name=theme-color]').remove();
+        $('head').append( '<meta name="theme-color" content="#FF8F00">' );
         document.getElementById("weather").innerHTML = (weather.currently.summary);
         document.getElementById("icon").innerHTML = ('<i class="wi wi-thunderstorm"></i>')
 
     } else {
         $("body").css("background-color", "#b71c1c");
         $("body").css("transition", "background-color 1000ms linear");
+        $('meta[name=theme-color]').remove();
+        $('head').append( '<meta name="theme-color" content="#b71c1c">' );
         document.getElementById("weather").innerHTML = (weather.currently.summary);
         document.getElementById("icon").innerHTML = '<i class="wi wi-na"></i>'
     }
@@ -124,9 +150,6 @@ function getWeather() {
     document.getElementById("5").innerHTML = ('<i class="wi wi-forecast-io-' + weather.daily.data[4].icon + '"></i>')
 
     document.getElementById("day").innerHTML = (weather.hourly.summary)
-
-    $('meta[name=theme-color]').remove();
-    $('head').append( '<meta name="theme-color" content="#FF6F00">' );
 
 let myNotification = new Notification('Simple Weather', {
   body: weather.currently.summary
