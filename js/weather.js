@@ -13,17 +13,19 @@ if (navigator.geolocation) {
 }
 else {
   console.log('Geolocation is not supported :-(');
-  document.getElementById("weather").innerHTML = "Geolocation is not supported";
-  document.getElementById("temperature").innerHTML = "N/A"
-  document.getElementById("timezone").innerHTML = "N/A"
+  document.getElementById("weather").innerHTML = "Geolocation is not supported!";
+    document.getElementById("temperature").innerHTML = ""
+    document.getElementById("wind_speed").innerHTML = ""
+    document.getElementById("humidity").innerHTML = ""
 }
 
 function geoError(error) {
   if (error.code == error.PERMISSION_DENIED) {
     console.log('Geolocation is blocked! :-(');
     document.getElementById("weather").innerHTML = "Geolocation is blocked!";
-    document.getElementById("temperature").innerHTML = "Please allow Simple Weather"
-    document.getElementById("timezone").innerHTML = "to access your location"
+    document.getElementById("temperature").innerHTML = ""
+    document.getElementById("wind_speed").innerHTML = "Please allow Simple Weather"
+    document.getElementById("humidity").innerHTML = "to access your location"
   }
 }
 
@@ -122,6 +124,9 @@ function getWeather() {
     document.getElementById("5").innerHTML = ('<i class="wi wi-forecast-io-' + weather.daily.data[4].icon + '"></i>')
 
     document.getElementById("day").innerHTML = (weather.hourly.summary)
+
+    $('meta[name=theme-color]').remove();
+    $('head').append( '<meta name="theme-color" content="#FF6F00">' );
 
 let myNotification = new Notification('Simple Weather', {
   body: weather.currently.summary
