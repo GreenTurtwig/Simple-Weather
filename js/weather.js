@@ -148,6 +148,7 @@ function getWeather() {
     document.getElementById("3").innerHTML = ('<i class="wi wi-forecast-io-' + weather.daily.data[2].icon + '"></i>')
     document.getElementById("4").innerHTML = ('<i class="wi wi-forecast-io-' + weather.daily.data[3].icon + '"></i>')
     document.getElementById("5").innerHTML = ('<i class="wi wi-forecast-io-' + weather.daily.data[4].icon + '"></i>')
+    document.getElementById("table").style.visibility = "visible";
 
     document.getElementById("day").innerHTML = (weather.hourly.summary)
 

@@ -2,18 +2,33 @@
 <html>
 <head>
 <title>Simple Weather</title>
+<meta name="description" content="Weather made SIMPLE! It's not like weathers that hard.">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="icon" sizes="192x192" href="icons/192x192.png">
 <link rel="apple-touch-icon" href="icons/192x192.png">
-<meta name="msapplication-square310x310logo" content="icons/512x512.png">
+<meta name="msapplication-TileImage" content="icons/512x512.png">
 
 <meta name="theme-color" content="#03a9f4">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<meta property="og:title" content="Simple Weather"/>
+<meta property="og:description" content="Weather made SIMPLE! It's not like weathers that hard."/>
+<meta property="og:site_name" content="Simple Weather"/>
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Simple Weather"/>
+<meta name="twitter:description" content="Weather made SIMPLE! It's not like weathers that hard."/>
+<meta name="twitter:image" content="icons/512x512.png"/>
+<meta name="twitter:creator" content="@GreenTurtwig"/>
 
 <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
 <script src="js/jquery-2.2.4.min.js"></script>
 <script src="js/weather.js"></script>
 <script>if (window.module) module = window.module;</script>
+
 <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 <link href="css/weather-icons.min.css" media="all" rel="stylesheet" type="text/css" />
 <style>
@@ -36,9 +51,9 @@ div {
 }
 #day {
     font-size: 15px;
-    position: absolute;
+    position: fixed;
     bottom: 5px;
-    width: 99%;
+    width: 100%;
 }
 a {
 	color: #fff
@@ -76,12 +91,11 @@ table {
 <div id="temperature"></div>
 <div id="wind_speed"></div>
 <div id="humidity"></div>
-<br><br>
-<!--<div id="timezone">Loading...</div>-->
 <br>
+<!--<div id="timezone">Loading...</div>-->
 
 <div>
-<center><table>
+<center><table id="table" style="visibility:hidden">
   <tr>
     <td>+0</td><td></td>
     <td>+1</td><td></td>
@@ -104,7 +118,7 @@ table {
 <a href="javascript:history.go(0)"><i class="wi wi-refresh"></i></a>
 </span>
 
-<center><div id="day">Loading...</div></center>
+<div id="day"></div>
 
 </body>
 
