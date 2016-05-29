@@ -5,23 +5,30 @@
 <meta name="description" content="Weather made SIMPLE! It's not like weathers that hard.">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<!--Icons-->
 <link rel="icon" sizes="192x192" href="icons/192x192.png">
 <link rel="apple-touch-icon" href="icons/192x192.png">
 <meta name="msapplication-TileImage" content="icons/512x512.png">
 
-<meta name="theme-color" content="#03a9f4">
+<!--Set As Web App-->
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
+
+<!--Mobile Theming-->
+<meta name="theme-color" content="#03a9f4">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
+<!--Facebook-->
 <meta property="og:title" content="Simple Weather"/>
 <meta property="og:description" content="Weather made SIMPLE! It's not like weathers that hard."/>
+<meta property="og:image" content="https://greenturtwig.github.io/Simple-Weather/icons/512x512.png"/>
 <meta property="og:site_name" content="Simple Weather"/>
 
+<!--Twitter-->
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Simple Weather"/>
 <meta name="twitter:description" content="Weather made SIMPLE! It's not like weathers that hard."/>
-<meta name="twitter:image" content="icons/512x512.png"/>
+<meta name="twitter:image" content="https://greenturtwig.github.io/Simple-Weather/icons/512x512.png"/>
 <meta name="twitter:creator" content="@GreenTurtwig"/>
 
 <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
@@ -31,56 +38,8 @@
 
 <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 <link href="css/weather-icons.min.css" media="all" rel="stylesheet" type="text/css" />
-<style>
-#main {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-}
-div {
-    text-align: center;
-    color: white;
-    font-family: 'Roboto', sans-serif;
-}
-#refresh {
-	font-size: 30px;
-    position: absolute;
-    top: 0px;
-    right: 8px;
-}
-#day {
-    font-size: 15px;
-    position: fixed;
-    bottom: 5px;
-    width: 100%;
-}
-a {
-	color: #fff
-}
-#icon {
-    font-size: 100px;
-}
-#weather {
-    font-size: 40px;
-}
-#temperature {
-    font-size: 30px;
-}
-#wind_speed {
-    font-size: 30px;
-}
-#humidity {
-    font-size: 30px;
-}
-#timezone {
-    font-size: 30px;
-}
-table {
-    text-align: center;
-    font-size: 30px;
-}
-</style>
+
+<link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body style="background-color: #03A9F4">
@@ -90,18 +49,18 @@ table {
 <div id="weather">Loading...</div>
 <div id="temperature"></div>
 <div id="wind_speed"></div>
-<div id="humidity"></div>
 <br>
+<!--<div id="humidity"></div>-->
 <!--<div id="timezone">Loading...</div>-->
 
 <div>
 <center><table id="table" style="visibility:hidden">
   <tr>
-    <td>+0</td><td></td>
-    <td>+1</td><td></td>
-    <td>+2</td><td></td>
-    <td>+3</td><td></td>
-    <td>+4</td>
+    <td id="1day">+0</td><td></td>
+    <td id="2day">+1</td><td></td>
+    <td id="3day">+2</td><td></td>
+    <td id="4day">+3</td><td></td>
+    <td id="5day">+4</td>
   </tr>
   <tr>
     <td id="1"><i class="wi wi-na"></i></td><td></td>

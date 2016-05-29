@@ -1,12 +1,11 @@
+//Get lat and long
 var lat;
 var long;
-
 var geoSuccess = function(position) {
   lat = position.coords.latitude;
   long = position.coords.longitude;
   getWeather();
 };
-
 if (navigator.geolocation) {
   console.log('Geolocation is supported :-)');
   navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
@@ -16,26 +15,25 @@ else {
   document.getElementById("weather").innerHTML = "Geolocation is not supported!";
     document.getElementById("temperature").innerHTML = ""
     document.getElementById("wind_speed").innerHTML = ""
-    document.getElementById("humidity").innerHTML = ""
+    //document.getElementById("humidity").innerHTML = ""
 }
-
 function geoError(error) {
   if (error.code == error.PERMISSION_DENIED) {
     console.log('Geolocation is blocked! :-(');
     document.getElementById("weather").innerHTML = "Geolocation is blocked!";
-    document.getElementById("temperature").innerHTML = ""
-    document.getElementById("wind_speed").innerHTML = "Please allow Simple Weather"
-    document.getElementById("humidity").innerHTML = "to access your location"
+    document.getElementById("temperature").innerHTML = "Please allow Simple Weather"
+    document.getElementById("wind_speed").innerHTML = "to access your location"
+    //document.getElementById("humidity").innerHTML = ""
   }
 }
 
-
+//Get weather for lat anf long
 function getWeather() {
     $.getJSON("https://api.forecast.io/forecast/97ed14dac543a81bc1c3dfc4845fdbe2/"+lat+","+long+"?units=uk2&callback=?",function(json){
     var weather = JSON.parse(JSON.stringify(json));
     document.getElementById("temperature").innerHTML = (weather.currently.apparentTemperature + '<i class="wi wi-celsius"></i>');
     document.getElementById("wind_speed").innerHTML = ('<i class="wi wi-strong-wind"></i> ' + weather.currently.windSpeed + "mph")
-    document.getElementById("humidity").innerHTML = ('<i class="wi wi-humidity"></i> ' + weather.currently.humidity + "%")
+    //document.getElementById("humidity").innerHTML = ('<i class="wi wi-humidity"></i> ' + weather.currently.humidity + "%")
     //document.getElementById("timezone").innerHTML = (weather.timezone)
 
     if (weather.currently.icon == "partly-cloudy-day"){
@@ -143,12 +141,61 @@ function getWeather() {
         document.getElementById("icon").innerHTML = '<i class="wi wi-na"></i>'
     }
 
+    //Set the table for the forecast
     document.getElementById("1").innerHTML = ('<i class="wi wi-forecast-io-' + weather.daily.data[0].icon + '"></i>')
     document.getElementById("2").innerHTML = ('<i class="wi wi-forecast-io-' + weather.daily.data[1].icon + '"></i>')
     document.getElementById("3").innerHTML = ('<i class="wi wi-forecast-io-' + weather.daily.data[2].icon + '"></i>')
     document.getElementById("4").innerHTML = ('<i class="wi wi-forecast-io-' + weather.daily.data[3].icon + '"></i>')
     document.getElementById("5").innerHTML = ('<i class="wi wi-forecast-io-' + weather.daily.data[4].icon + '"></i>')
     document.getElementById("table").style.visibility = "visible";
+
+    //Set the table for the days of the week
+    var d = new Date();
+    var n = d.getDay();
+    if (n == 0){
+        document.getElementById("1day").innerHTML = "Sun"
+        document.getElementById("2day").innerHTML = "Mon"
+        document.getElementById("3day").innerHTML = "Tue"
+        document.getElementById("4day").innerHTML = "Wed"
+        document.getElementById("5day").innerHTML = "Thu"
+    } else if (n == 1){
+        document.getElementById("1day").innerHTML = "Mon"
+        document.getElementById("2day").innerHTML = "Tue"
+        document.getElementById("3day").innerHTML = "Wed"
+        document.getElementById("4day").innerHTML = "Thu"
+        document.getElementById("5day").innerHTML = "Fri"
+    } else if (n == 2){
+        document.getElementById("1day").innerHTML = "Tue"
+        document.getElementById("2day").innerHTML = "Wed"
+        document.getElementById("3day").innerHTML = "Thu"
+        document.getElementById("4day").innerHTML = "Fri"
+        document.getElementById("5day").innerHTML = "Sat"
+    } else if (n == 3){
+        document.getElementById("1day").innerHTML = "Wed"
+        document.getElementById("2day").innerHTML = "Thu"
+        document.getElementById("3day").innerHTML = "Fri"
+        document.getElementById("4day").innerHTML = "Sat"
+        document.getElementById("5day").innerHTML = "Sun"
+    } else if (n == 4){
+        document.getElementById("1day").innerHTML = "Thu"
+        document.getElementById("2day").innerHTML = "Fri"
+        document.getElementById("3day").innerHTML = "Sat"
+        document.getElementById("4day").innerHTML = "Sun"
+        document.getElementById("5day").innerHTML = "Mon"
+    } else if (n == 5){
+        document.getElementById("1day").innerHTML = "Fri"
+        document.getElementById("2day").innerHTML = "Sat"
+        document.getElementById("3day").innerHTML = "Sun"
+        document.getElementById("4day").innerHTML = "Mon"
+        document.getElementById("5day").innerHTML = "Tue"
+    } else if (n == 6){
+        document.getElementById("1day").innerHTML = "Sat"
+        document.getElementById("2day").innerHTML = "Sun"
+        document.getElementById("3day").innerHTML = "Mon"
+        document.getElementById("4day").innerHTML = "Tue"
+        document.getElementById("5day").innerHTML = "Wed"
+    }
+
 
     document.getElementById("day").innerHTML = (weather.hourly.summary)
 
